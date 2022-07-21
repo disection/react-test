@@ -1,41 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
-import Button from '././Componets/button'
+import users from './assets/mock_users'
+import UserCard from './Componets/UserCard' 
+
+
 
 function App() {
-  const buttons = [
-    {
-      text: 'Botón 1',
-      color: 'primary'
-    },
-    {
-      text: 'Botón 2',
-      color: 'secondary'
-    },
-    {
-      text: 'Botón 3',
-      color: 'success'
-    },
-    {
-      text: 'Botón 4',
-      color: 'danger'
-    },
-    {
-      text: 'Botón 5',
-      color: 'warning'
-    }
-  ]
+  
+  console.log(users)
+  
   return (
     <div className="App">
-      <div className='d-flex justify-content-between w-50 mt-3 mx-auto'>
-        {buttons
-          .filter(button => button.color !== 'primary')
-          .map((button, index) => {
-            return <Button text={button.text} color={button.color} />
-          })}
+      <div className="row row-cols-1 row-cols-md-4 g-4 ">
+        { users.map( ( user,index ) => <UserCard cardData = {user}/>) }
       </div>
     </div>
-  );
+  )
 }
 
 export default App;
