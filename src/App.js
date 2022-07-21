@@ -1,18 +1,17 @@
 import './App.css';
 import users from './assets/mock_users'
-import UserCard from './Componets/UserCard' 
+import List from './Componets/List'
+ 
 
 
 
 function App() {
   
-  console.log(users)
+ 
   
   return (
     <div className="App">
-      <div className="row row-cols-1 row-cols-md-4 g-4 ">
-        { users.map( ( user,index ) => <UserCard cardData = {user}/>) }
-      </div>
+      <List data={users} />
     </div>
   )
 }
