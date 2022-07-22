@@ -1,14 +1,74 @@
 import './App.css';
-import ShapeDiv from './Componets/Shape';
-import finalShapes from './assets/shapes'
+import { useState } from 'react'
+import { Form, Label, Input, FormGroup, Button } from 'reactstrap';
+
  
 function App() {
+  //let userData = {}
+  const [title, setTitle] = useState('Hola Koders!')
+  const [isLogged, setIsLogged] = useState(false)
+  // title = 'hola koders'
+  /* const setTitle = (valor) => {
+    title = valor
+  }*/
+  const inputHandler = event =>{
+    setTitle(event.target.value)
+  }
+  const logingHandler = event => {
+    setIsLogged(true)
+  }
+
+  const logutHandler =event =>{
+    setIsLogged(false)
+  }
+
+  const saveHandler = event =>{
+    event.preventDefault()
+    alert('guardando datos')
+  }
   return (
-    <div className="App">  
-       { finalShapes.map( shape => (
-         <ShapeDiv shape={shape.shape} color={shape.color}/> 
-        ) )
-      }
+    <div className="App">
+        <div className="w-50 p-3 m-auto">
+          <Form>
+            <input type="text" onChange={inputHandler}/>
+            <h1>{title}</h1>
+            <FormGroup>
+              <Label for="exampleEmail">
+                Email
+              </Label>
+              <Input
+                id="exampleEmail"
+                name="email"
+                placeholder="with a placeholder"
+                type="email"
+                onChange={inputHandler}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="examplePassword">
+                Password
+              </Label>
+              <Input
+                id="examplePassword"
+                name="password"
+                placeholder="password placeholder"
+                type="password"
+              />
+            </FormGroup>
+            <Button type="button" onClick={saveHandler}>
+              Guardar
+            </Button>
+          </Form>
+        </div>  
+
+        <div className="w-50 p-3 m-auto">
+          { !isLogged && <Button type="button" className="btn btn-success" onClick={logingHandler}>
+            login
+          </Button>}
+          { isLogged &&<Button type="button" className="btn btn-warning" onClick={logutHandler}>
+            Sign
+          </Button>}
+        </div>    
     </div>
   )
 }
