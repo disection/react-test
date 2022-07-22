@@ -2,16 +2,16 @@ import './App.css';
 import { useState } from 'react'
 import { Form, Label, Input, FormGroup, Button } from 'reactstrap';
 
-import Title from './Componets/Title'
+//import Title from './Componets/Title'
  
 function App() {
-  //let userData = {}
+  /*//let userData = {}
   const [title, setTitle] = useState('Hola Koders!')
   const [isLogged, setIsLogged] = useState(false)
   // title = 'hola koders'
-  /* const setTitle = (valor) => {
+   const setTitle = (valor) => {
     title = valor
-  }*/
+  
   const inputHandler = event =>{
     setTitle(event.target.value)
   }
@@ -26,11 +26,24 @@ function App() {
   const saveHandler = event =>{
     event.preventDefault()
     alert('guardando datos')
-  }
+  }}*/
   return (
     <div className="App">
+        <div className=" w-50 p-3 m-auto justify-content-between">
+          <Button type="button" className="btn btn-success" >
+            green
+          </Button>
+          <Button type="button" className="btn btn-warning" >
+            yellow
+          </Button>
+          <Button type="button" className="btn btn-danger" >
+            red
+          </Button>          
+        </div>
+        <div className="ligth bg-red m-auto p-3"></div>
+
         <div className="w-50 p-3 m-auto">
-          <Title text={title}/>
+           {/*<Title text={title}/>
           <Form>
             <input type="text" onChange={inputHandler}/>
             
@@ -69,8 +82,8 @@ function App() {
           </Button>}
           { isLogged &&<Button type="button" className="btn btn-warning" onClick={logutHandler}>
             Sign
-          </Button>}
-        </div>    
+          </Button>}*/} 
+        </div>   
     </div>
   )
 }
