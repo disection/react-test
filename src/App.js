@@ -1,13 +1,14 @@
 import './App.css';
-import users from './assets/mock_users'
-import products from './assets/mock_products'
-import List from './Componets/List'
+import ShapeDiv from './Componets/Shape';
+import finalShapes from './assets/shapes'
  
 function App() {
   return (
     <div className="App">  
-      <List data={users} type='listaDeUsuarios'/>
-      <List data={products} type='listaDeProductos' />
+       { finalShapes.map( shape => (
+         <ShapeDiv shape={shape.shape} color={shape.color}/> 
+        ) )
+      }
     </div>
   )
 }
