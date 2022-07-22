@@ -27,20 +27,33 @@ function App() {
     event.preventDefault()
     alert('guardando datos')
   }}*/
+  const [bgColor, setBgcolor] = useState( 'bg-success' )
+  const greenLigthHandler = event => {
+    setBgcolor('bg-success')
+  }
+
+  const yellowLigthHandler = event => {
+    setBgcolor('bg-warning')
+  }
+
+  const redLigthHandler = event => {
+    setBgcolor('bg-danger')
+  }
+  
   return (
     <div className="App">
         <div className=" w-50 p-3 m-auto justify-content-between">
-          <Button type="button" className="btn btn-success" >
+          <Button type="button" className="btn btn-success" onClick={greenLigthHandler}>
             green
           </Button>
-          <Button type="button" className="btn btn-warning" >
+          <Button type="button" className="btn btn-warning" onClick={yellowLigthHandler}>
             yellow
           </Button>
-          <Button type="button" className="btn btn-danger" >
+          <Button type="button" className="btn btn-danger" onClick={redLigthHandler}>
             red
           </Button>          
         </div>
-        <div className="ligth bg-red m-auto p-3"></div>
+        <div className={`ligth bg-red m-auto p-3 ${bgColor}`}></div>
 
         <div className="w-50 p-3 m-auto">
            {/*<Title text={title}/>
