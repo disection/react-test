@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react'
 import { Form, Label, Input, FormGroup, Button } from 'reactstrap';
 
+import Title from './Componets/Title'
  
 function App() {
   //let userData = {}
@@ -29,9 +30,10 @@ function App() {
   return (
     <div className="App">
         <div className="w-50 p-3 m-auto">
+          <Title text={title}/>
           <Form>
             <input type="text" onChange={inputHandler}/>
-            <h1>{title}</h1>
+            
             <FormGroup>
               <Label for="exampleEmail">
                 Email
