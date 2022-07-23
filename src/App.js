@@ -2,16 +2,16 @@ import './App.css';
 import { useState } from 'react'
 import { Form, Label, Input, FormGroup, Button } from 'reactstrap';
 
-//import Title from './Componets/Title'
+import Title from './Componets/Title'
  
 function App() {
-  /*//let userData = {}
+  //let userData = {}
   const [title, setTitle] = useState('Hola Koders!')
   const [isLogged, setIsLogged] = useState(false)
   // title = 'hola koders'
-   const setTitle = (valor) => {
+  /* const setTitle = (valor) => {
     title = valor
-  
+  */
   const inputHandler = event =>{
     setTitle(event.target.value)
   }
@@ -26,7 +26,7 @@ function App() {
   const saveHandler = event =>{
     event.preventDefault()
     alert('guardando datos')
-  }}*/
+  }
   const [bgColor, setBgcolor] = useState( 'bg-success' )
   const greenLigthHandler = event => {
     setBgcolor('bg-success')
@@ -42,11 +42,11 @@ function App() {
   
   return (
     <div className="App">
-        <div className=" w-50 p-3 m-auto justify-content-between">
-          <Button type="button" className="btn btn-success" onClick={greenLigthHandler}>
+        <div className=" w-50 p-3 m-auto justify-content-between ">
+          <Button type="button" className="btn btn-success " onClick={greenLigthHandler}>
             green
           </Button>
-          <Button type="button" className="btn btn-warning" onClick={yellowLigthHandler}>
+          <Button type="button" className="btn btn-warning m-3" onClick={yellowLigthHandler}>
             yellow
           </Button>
           <Button type="button" className="btn btn-danger" onClick={redLigthHandler}>
@@ -56,7 +56,7 @@ function App() {
         <div className={`ligth bg-red m-auto p-3 ${bgColor}`}></div>
 
         <div className="w-50 p-3 m-auto">
-           {/*<Title text={title}/>
+          <Title text={title}/>
           <Form>
             <input type="text" onChange={inputHandler}/>
             
@@ -95,7 +95,7 @@ function App() {
           </Button>}
           { isLogged &&<Button type="button" className="btn btn-warning" onClick={logutHandler}>
             Sign
-          </Button>}*/} 
+          </Button>} 
         </div>   
     </div>
   )
