@@ -1,24 +1,22 @@
 import {Card,  ListGroup, ListGroupItem} from 'reactstrap'
 
 const ProductCard = (props) => {
-    const { title, image, description, category, rating } = props.cardData
+    const { title, image,  category, price } = props.cardData
     return(
         <Card >
           <img alt="Card image" src={image}/>          
           <ListGroup flush>
             <ListGroupItem>
               {title} 
-            </ListGroupItem>
-            <ListGroupItem >
-              {description}
-            </ListGroupItem>
+            </ListGroupItem>            
             <ListGroupItem>
               {category}
             </ListGroupItem>
             <ListGroupItem>
-              {rating.rate}
+              {price}
             </ListGroupItem>
-          </ListGroup>          
+          </ListGroup>  
+          <button clasName="btn btn-primary" type='button' onClick={buttonHandler}>Agregar al carrito</button>        
         </Card>
     )
 }
