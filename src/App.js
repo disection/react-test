@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import {useState} from 'react'
+import List from './Componets/List'
  
 function App() { 
   // save list of koders
@@ -50,26 +51,7 @@ function App() {
           <div className="col-12 col-md-9">
             {!koderList.length &&  <h2>Registra un koder en el formulario de la izquierda</h2>
             }
-            <div className="row row-cols-1 row-cols-md-3 g-4">              
-              { koderList.map((koder, index) => {
-                const { name, email, generation } = koder
-                return (
-                  <div className="col" key={index}>
-                    <div className="card">      
-                      <div className="card-body">
-                        <h5 className="card-title">{name}</h5>
-                        <p className="card-text">{email}</p>
-                        <p className="card-text">{generation}</p>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}         
-
-                
-                
-              
-            </div>
+            <List koderList ={koderList}/>
           </div>
         </div>
       </div>  
