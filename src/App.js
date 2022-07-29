@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { Link, Routes, Route } from "react-router-dom";
+import Posts from './Page/Post'
+import NewPost from './Page/NewPost'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <nav className="d-flex justify-content-center py-3 gap-3">        
+          <Link to="/posts" className="nav-link">Publicaciones</Link>
+          <Link to="/newPost" className="nav-link">Nuevas publicaciones</Link>        
+      </nav>
+
+      <main className='container'>
+        <div className="row">
+          <aside className="col-3">hola</aside>
+          <div className="col-6">
+            <Routes>
+              <Route path="/" element={<h1>hola</h1>} />
+              <Route path="posts" element={<Posts />} />
+              <Route path="newPost" element={<NewPost />} />
+            </Routes>
+          </div>
+          <aside className="col-3">hola</aside>
+        </div>        
+      </main>
     </div>
   );
 }
