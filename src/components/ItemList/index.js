@@ -4,7 +4,7 @@ const ItemList = props => {
     return (
         <div className="row row-cols-1 row-cols-md-3 gap-3">
             {
-            // extract objects from mock and make cards products
+            // extract objects from props and make cards products
             productsArray.map( (product) => {
             // destruct object product
             const {id,title,price,description,rating, image}= product
