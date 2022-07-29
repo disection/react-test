@@ -18,14 +18,15 @@ function App() {
     console.log(selectedProduct)
     // send the object to array selectedProducts spread operator
     setSelectedProducts([
-      ...selectedProducts, 
+      ...selectedProducts,
+      // add property purchased on product to virtual renderin opton button add|delete 
       {...selectedProduct, purchased:true}
     ])
    }
    const removeProduct = (id) =>{    
-    // brought the object
+    // delete objet on list selectedProducts 
     const remaningProducts= selectedProducts.filter( product => product.id !== id)    
-    // send the object to array selectedProducts spread operator
+    // chance te list products on selectedProducts
     setSelectedProducts( remaningProducts )
    }
   return (
