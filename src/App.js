@@ -17,7 +17,16 @@ function App() {
     const selectedProduct = products.find( product => product.id === id)
     console.log(selectedProduct)
     // send the object to array selectedProducts spread operator
-    setSelectedProducts([...selectedProducts, selectedProduct])
+    setSelectedProducts([
+      ...selectedProducts, 
+      {...selectedProduct, purchased:true}
+    ])
+   }
+   const removeProduct = (id) =>{    
+    // brought the object
+    const remaningProducts= selectedProducts.filter( product => product.id !== id)    
+    // send the object to array selectedProducts spread operator
+    setSelectedProducts( remaningProducts )
    }
   return (
     <div className="App">
@@ -33,26 +42,17 @@ function App() {
           <div className="col-12 col-md-6">
             <h1>Carrito de compras</h1>            
               {
+                
                 // conditional rendering if selectedProducta is empty
                 !selectedProducts.length ? <h2>Selecciona un producto de la lista</h2>:
                 // extract objects from selectedProducts
-                selectedProducts.map((product) => {
-                  // destruct object product
-                  const {id,title,price,description,rating, image}= product
-                return (
-                  <div className="row row-cols-1 row-cols-md-3">
-                    <div className="col" key={id} /*key to not create conflicts in virtualDom */>
-                      <div className="card h-100">
-                        <img src={image} className='w-100' alt="" />
-                        <h2 className="card-body">{title}</h2>
-                        <p className="card-text">{description.substring(0,40)}</p>
-                        <p className="card-text">{rating.rate}</p>
-                        <p className="card-text">{price}</p>
-                        <button type="button" className="btn btn-primary" >Agregar al carrito</button>
-                      </div>
-                    </div>
-                  </div>)               
-                })
+                <> 
+                {/* add reduce to make total */}
+                <h3>Total: ${selectedProducts.reduce((acc,curr)=>
+                acc + curr.price, 0)}</h3>
+                <ItemList productsArray={selectedProducts}
+                removeProductHandler={removeProduct}/> 
+                </>
               }
               
             
