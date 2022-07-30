@@ -6,16 +6,31 @@ import ItemList from './components/ItemList';
 
  
 function App() { 
+const [ allProducts, setAllProducts] = useState(products)
+
   // create state to add selected product in array
   const [ selectedProducts, setSelectedProducts ] = useState([])
 
-  // handler selected with id product from products
+  // category variable from DB products
+   const categoriesList = products.reduce( (accum,current)=> {
+    return !accum.includes(current.category) ? [...accum, current.category] :
+    accum
+   }, [])
+   console.log(categoriesList)
+   // opctions on select component
+    const Categories = categoriesList.map( (category) => {
+      return <option value={category}>{category}</option>
+    })
+
   
+
+    
+  //  handler selected with id product from products  
    const addProduct = (id) =>{
-    console.log(id)
+    //console.log(id)
     // brought the object
     const selectedProduct = products.find( product => product.id === id)
-    console.log(selectedProduct)
+    //console.log(selectedProduct)
     // send the object to array selectedProducts spread operator
     setSelectedProducts([
       ...selectedProducts,
@@ -29,12 +44,23 @@ function App() {
     // chance te list products on selectedProducts
     setSelectedProducts( remaningProducts )
    }
+
+ const categoryHandler = event => {     
+    console.log(event.target.value)
+   
+  }
   return (
     <div className="App">
       <div className="conteiner-fluid">
         <div className="row">
           <div className="col-12 col-md-6">
             <h1>Catálogo de productos</h1>
+            <select className="form-select" aria-label="Default select example" onChange={categoryHandler}>
+              <option selected >Selecciona una Categoría</option>
+              {//opction on DB produts 
+              Categories}
+              
+            </select>
             <ItemList 
             productsArray={products} 
             // variable is sent as a prop so that it can do a state survey when modulating the list

@@ -1,4 +1,4 @@
-const products = [
+const allProducts = [
     {
       id: 20,
       title: 'DANVOUY Womens T Shirt Casual Cotton Short',
@@ -266,4 +266,4 @@ const products = [
       }
     }
   ]
-  export default products
+  export default allProducts

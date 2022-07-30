@@ -6,10 +6,10 @@ const ProductCard = props => {
         <div className="col" >
             <div className="card h-100">
                 <img src={image} className='w-100' alt="" />
-                <h2 className="card-body">{title}</h2>
-                <p className="card-text">{description.substring(0,40)/* only see a part from description */}</p>
+                <h4 className="card-body">{title}</h4>
+                <p className="card-text">{description.substring(0,40)/* only see a part from description */}...</p>
                 <p className="card-text">{rating.rate}</p>
-                <p className="card-text">{price}</p>
+                <p className="card-text">${price}</p>
                 {!purchased ? (
                     <button 
                     type="button" 
